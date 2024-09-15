@@ -1,0 +1,132 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e9ecef; /* لون خلفية أكثر نعومة */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#game-container {
+    margin: auto;
+    width: 350px; /* زيادة العرض */
+    padding: 20px;
+    border: 2px solid #343a40; /* لون داكن */
+    background-color: #ffffff; /* خلفية بيضاء */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* ظل أكثر نعومة */
+    border-radius: 15px; /* زوايا دائرية */
+    position: relative; /* لجعل الخطوط تتداخل بشكل صحيح */
+    transition: background-color 0.5s; /* تأثير الانتقال عند تغيير اللون */
+}
+
+h1 {
+    color: #343a40; /* لون داكن */
+    font-size: 2em; /* حجم خط أكبر */
+    margin-bottom: 20px; /* مسافة أسفل العنوان */
+}
+
+label {
+    font-size: 1.2em; /* حجم خط أكبر */
+    color: #495057; /* لون رمادي داكن */
+}
+
+select {
+    padding: 10px; /* حشوة داخلية */
+    font-size: 1em; /* حجم خط */
+    border: 1px solid #ced4da; /* لون حدود */
+    border-radius: 5px; /* زوايا دائرية */
+    margin-bottom: 20px; /* مسافة أسفل القائمة */
+    background-color: #ffffff; /* خلفية بيضاء */
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; /* زيادة الفجوة بين الخلايا */
+    margin-bottom: 20px;
+}
+
+.cell {
+    width: 100px; /* عرض ثابت للخلايا */
+    height: 100px; /* ارتفاع ثابت للخلايا */
+    background-color: #f8f9fa; /* لون خلفية الخلايا */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 10px; /* زوايا دائرية */
+    border: 2px solid #ced4da; /* لون حدود */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+}
+
+.cell:hover {
+    background-color: #e2e6ea; /* لون خلفية عند التمرير */
+    transform: scale(1.05); /* تأثير تكبير عند التمرير */
+}
+
+.cell.X {
+    color: #ff6347; /* لون X (أحمر) */
+}
+
+.cell.O {
+    color: #007bff; /* لون O (أزرق) */
+}
+
+#status {
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #343a40; /* لون داكن */
+}
+
+#restart-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007bff; /* لون زر */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* تأثيرات الزر */
+}
+
+#restart-button:hover {
+    background-color: #0056b3; /* لون عند التمرير */
+    transform: scale(1.05); /* تأثير تكبير عند التمرير */
+}
+
+.hidden {
+    display: none;
+}
+
+/* أنماط الخطوط للفائز */
+.line {
+    position: absolute;
+    background-color: #ff6347; /* لون الخط */
+    height: 5px;
+    width: 100%;
+    z-index: 1;
+}
+
+.line.horizontal {
+    top: 40%; /* تعديل موضع الخط الأفقي */
+}
+
+.line.vertical {
+    left: 35%; /* تعديل موضع الخط العمودي */
+    height: 100%;
+}
+
+.line.diagonal1 {
+    transform: rotate(45deg);
+    top: 10%;
+    left: 10%;
+    width: 150%;
+}
+
+.line.diagonal2 {
+    transform: rotate(-45deg);
+    top: 10%;
+    left: -10%;
+    width: 150%;
+}
